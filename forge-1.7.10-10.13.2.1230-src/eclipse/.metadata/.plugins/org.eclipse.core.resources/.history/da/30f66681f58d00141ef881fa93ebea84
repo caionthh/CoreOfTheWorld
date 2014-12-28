@@ -1,0 +1,6 @@
+package com.caionthh.CoreOfTheWorld.items;
+
+public class ItemCoreEatable extends ItemFood {
+	
+	
+}

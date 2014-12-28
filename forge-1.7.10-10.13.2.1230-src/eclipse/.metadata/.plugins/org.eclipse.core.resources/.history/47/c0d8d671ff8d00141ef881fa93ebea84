@@ -1,0 +1,106 @@
+package com.caionthh.CoreOfTheWorld.items;
+
+import java.util.List;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.FoodStats;
+import net.minecraft.world.World;
+
+import com.caionthh.CoreOfTheWorld.lib.Constants;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public class ItemCoreMeat extends ItemCore {
+	
+	
+	//Name
+	public String name = "CoreMeat";
+	
+	//Food Config
+	int maxDamage = 1001;
+	int damagePerFoodLevel = 22;
+	
+	
+	public ItemCoreMeat() {
+		
+		//Name
+		setUnlocalizedName(Constants.itemCoreMeatName);
+		
+		//Creative
+		setCreativeTab(CreativeTabs.tabMisc);
+		
+		//Damage
+		setMaxDamage(maxDamage);
+		
+		//Register
+		GameRegistry.registerItem(this, name);
+		
+		//Texture
+		setTextureName(Constants.modid + ":" + name);
+		
+	}
+	
+	//Get Sub Items
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List subItems) {
+		subItems.add(new ItemStack(item, 1, 1));
+	}
+	
+	
+	//Update
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int p_77663_4_, boolean p_77663_5_) {
+	
+		
+		//Check for food Level
+		EntityPlayer ePlayer = (EntityPlayer)entity;
+		
+		//Remote World
+		if (!world.isRemote) {
+			
+			//Check Food Level
+			FoodStats stats = ePlayer.getFoodStats();
+			int PlayerFoodLevel = ePlayer.getFoodStats().getFoodLevel();
+			
+			//Not at Maximum
+			if (PlayerFoodLevel < 20) {
+				
+				//Calculate required Damage
+				int damageReq = (20 - PlayerFoodLevel) * damagePerFoodLevel;
+				int remainingDamage = MaxDamage-stack.getItemDamage();
+				
+				System.out.println(PlayerFoodLevel);
+				
+				//Try Replenish it
+				if (remainingDamage ) {
+					
+					System.out.println("Healing Normal Damage");
+					
+					//Heal Player Food
+					stats.setFoodLevel(20);
+					
+					//Damage Item
+					stack.setItemDamage(remainingDamage+damageReq);
+				}
+				
+			}
+		
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLPreInitializationEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod.Metadata"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLInitializationEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod.EventHandler"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.blocks.BlockManaAltarCenter"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.items.ItemCoreCasing"/>
+<fullyQualifiedTypeName name="net.minecraft.item.ItemFood"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer"/>
+<fullyQualifiedTypeName name="net.minecraft.util.FoodStats"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+<fullyQualifiedTypeName name="net.minecraft.world.World"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.blocks.entities.TileEntityManaAltarCenter"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.blocks.BlockItemSpreader"/>
+<fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntity"/>
+<fullyQualifiedTypeName name="net.minecraft.block.material.Material"/>
+<fullyQualifiedTypeName name="net.minecraft.block.ITileEntityProvider"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.lib.Constants"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.registry.GameRegistry"/>
+<fullyQualifiedTypeName name="net.minecraft.creativetab.CreativeTabs"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.blocks.entities.TileEntityItemSpreader"/>
+<fullyQualifiedTypeName name="com.caionthh.CoreOfTheWorld.lib.ModBlocks"/>
+<fullyQualifiedTypeName name="net.minecraft.block.BlockChest"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
+<fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntityChest"/>
+<fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
+<fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
+</qualifiedTypeNameHistroy>

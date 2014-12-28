@@ -1,0 +1,25 @@
+package com.caionthh.CoreOfTheWorld.items;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+
+public class ItemCoreCasing extends Item {
+
+	//Name
+	public String name = "CoreCasing";
+	
+	public ItemCoreCasing() {
+		
+		//Name
+		
+		//Creative
+		setCreativeTab(CreativeTabs.tabMisc);
+		
+		
+		
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,19 @@
+package com.caionthh.CoreOfTheWorld.blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import com.caionthh.CoreOfTheWorld.lib.*;
+
+public class BlockManaAltarCenter extends Block {
+
+	public BlockManaAltarCenter() {
+		super(Material.rock);
+		
+		//Name
+		setBlockName(Constants.blockManaAltarCenterName);
+		
+		
+		
+	}
+
+}

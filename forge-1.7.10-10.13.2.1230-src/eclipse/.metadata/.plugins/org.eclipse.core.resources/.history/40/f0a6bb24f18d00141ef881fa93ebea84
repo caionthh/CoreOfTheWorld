@@ -1,0 +1,20 @@
+package com.caionthh.CoreOfTheWorld.lib;
+
+public class Constants {
+	
+	//MODID
+	public static final String modid = "caionthh.coreoftheworld";
+	//VERSION
+	public static final String version = "0.1a";
+	//NAME
+	public static final String name = "Core of the world";
+	
+	
+
+	//Mana Altar
+	public static final String blockManaAltarCenterName = modid + ".ManaAltarCenter";
+	
+	
+	
+	
+}

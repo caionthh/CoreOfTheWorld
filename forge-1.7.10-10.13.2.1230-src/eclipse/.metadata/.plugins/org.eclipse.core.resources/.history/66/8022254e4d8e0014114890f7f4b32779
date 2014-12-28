@@ -1,0 +1,32 @@
+package com.caionthh.CoreOfTheWorld.blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
+
+public class BlockItemSpreader extends Bloc implements ITileEntityProvider {
+
+	
+	//name
+	public String name = "ItemSpreader";
+	
+	public BlockItemSpreader() {
+		super(Material.rock);
+		
+		//Name
+		setBlockName(Constants.blockItemSpreaderName);
+		//Creative
+		setCreativeTab(CreativeTabs.tabBlock);
+				
+		//Registry
+		GameRegistry.registerBlock(this, name);
+		
+		//Set Texture
+		setBlockTextureName(Constants.modid +":"+ name);
+		
+		
+		
+		
+	}
+
+}
