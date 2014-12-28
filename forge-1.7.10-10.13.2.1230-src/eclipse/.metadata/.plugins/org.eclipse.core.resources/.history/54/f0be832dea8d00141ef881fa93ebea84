@@ -1,8 +1,0 @@
-package com.caionthh.CoreOfTheWorld;
-
-import cpw.mods.fml.common.Mod;
-
-@Mod(modid = "caionthh.CoreOfTheWorld", name = "Core of the World", version = "0.01a")
-public class CoreOfTheWorld {
-
-}
