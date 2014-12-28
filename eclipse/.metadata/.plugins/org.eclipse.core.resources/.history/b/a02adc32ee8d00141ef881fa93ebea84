@@ -1,0 +1,27 @@
+package com.caionthh.CoreOfTheWorld.lib;
+
+import com.caionthh.CoreOfTheWorld.blocks.BlockManaAltarCenter;
+
+public class ModBlocks {
+
+	
+	
+	//Mana Altar
+	public static final BlockManaAltarCenter blockManaAltarCenter;
+	
+	
+	
+	//Create All Blocks
+	public static void CreateAllBlocks() {
+		
+		
+		//Mana Altar
+		blockManaAltarCenter 
+		
+		
+	}
+	
+	
+	
+	
+}

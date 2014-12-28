@@ -1,0 +1,142 @@
+package com.caionthh.CoreOfTheWorld.blocks.entities;
+
+import com.caionthh.CoreOfTheWorld.lib.ModBlocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
+import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
+
+public class TileEntityItemSpreader extends TileEntity {
+
+	
+	//Connected Spreader
+	private TileEntityItemSpreader connectedSpreader;
+	private TileEntityChest adjacentChest;
+	
+	//Update
+	@Override
+	public void updateEntity() {
+		
+		//Check For Connect
+		for (int z = 1; z < 16; z++) {
+			if (this.worldObj.getBlock(xCoord, yCoord, zCoord+z) == ModBlocks.blockItemSpreader)
+			{
+				connectedSpreader = (TileEntityItemSpreader)this.worldObj.getTileEntity(xCoord, yCoord, zCoord+z);
+				break;
+			}
+		}
+		
+		//Check Chest Around
+		Block bChest = this.worldObj.getBlock(xCoord, yCoord, zCoord-1); 
+		if (bChest == Blocks.chest){ 
+			adjacentChest = (TileEntityChest)this.worldObj.getTileEntity(xCoord, yCoord, zCoord-1);
+		}
+		
+		//Connected
+		if (connectedSpreader != null) {
+		
+			//Chest Connected
+			if (adjacentChest != null) {
+				
+				//Get Chest Inventory
+				IInventory chestInv = (IInventory)adjacentChest;
+				int invSize = chestInv.getSizeInventory();
+				
+				//Spread Inventory to Another
+				if (chestInv != null) {
+					
+					//Loop
+					for (int slot = 0; slot < invSize; slot++) {
+						//Get
+						ItemStack itemForSend = chestInv.getStackInSlot(slot);
+						
+						//Has Item
+						if (itemForSend != null) {
+							connectedSpreader.ReceiveItem(itemForSend);	
+							chestInv.setInventorySlotContents(slot, null);
+						}
+					}
+					
+				}
+				
+			}		
+		}
+	
+	}
+	
+	
+	
+	
+	//Receive Items
+	public void ReceiveItem(ItemStack item) {
+		
+		//Adjacent Chest
+		if (adjacentChest != null) {
+			
+			IInventory chestInv = (IInventory)adjacentChest;
+			PutStack(item, chestInv, -1);
+			
+		}
+			
+		
+	}
+	
+	
+	//Put stack
+	private void PutStack(ItemStack item, IInventory chestInv, int startFrom) {
+		
+		//Get Chest Inventory
+		int invSize = chestInv.getSizeInventory();
+		
+		//Has inv
+		if (chestInv != null) {
+		
+			//Check Item
+			for (int slot = 0; slot < invSize; slot++) {
+			
+				//Verify Stack
+				ItemStack cStack = chestInv.getStackInSlot(slot);
+				
+				//Same Type
+				if(cStack.getItem() == item.getItem()) {
+					
+					//Sum Stack
+					if ((cStack.stackSize + item.stackSize) <= item.getMaxStackSize())  {
+						//Add It
+						ItemStack sumStack = new ItemStack(cStack.getItem(), cStack.stackSize+item.stackSize);
+						chestInv.setInventorySlotContents(slot, sumStack);
+						
+						//Break Loop
+						break;
+					}
+					else if ((cStack.stackSize + item.stackSize) > item.getMaxStackSize()) {//Split Stack
+
+						//Split
+						ItemStack fullStack = new ItemStack(cStack.getItem(), cStack.getMaxStackSize());
+						ItemStack restStack = new ItemStack(cStack.getItem(), (item.stackSize+cStack.stackSize)-(cStack.getMaxStackSize()));						
+						
+						//Parse it
+						chestInv.setInventorySlotContents(slot, fullStack);
+						PutStack(restStack, chestInv, slot+1);
+						break;
+					}
+				
+				}
+
+		}
+		
+	}
+	
+		
+		
+		
+	}
+	
+	
+	
+
+}

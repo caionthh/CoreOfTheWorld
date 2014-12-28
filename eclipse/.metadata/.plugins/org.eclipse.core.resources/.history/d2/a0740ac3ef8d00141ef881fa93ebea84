@@ -1,0 +1,16 @@
+[
+{
+  "modid": "caionthhoreoftheworld",
+  "name": "Core of the world",
+  "description": "A mod all about manipulating the world using magic from the core of the objects",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Caionthh"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,12 @@
+package com.caionthh.CoreOfTheWorld.lib;
+
+public class Constants {
+	
+	//MODID
+	static String modid = "caionthh.coreoftheworld";
+	//VERSION
+	static String version
+	
+	
+
+}

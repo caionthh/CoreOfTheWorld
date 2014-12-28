@@ -1,0 +1,82 @@
+package com.caionthh.CoreOfTheWorld.blocks.entities;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
+
+public class TileEntityManaAltarCenter extends TileEntity {
+	
+	//Multiblock Structure
+	private int multiBlock[][][] = new int[5][5][3];
+	private boolean multiBlockComplete = true;
+	
+	
+
+	//Update
+	@Override
+	public void updateEntity() {
+		
+		//Verify All Surrounding Blocks to see if the structure is complete
+		Block surroundings[][][] = new Block[5][5][3];
+		int correctBlocks = 0;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j ++) {
+				for (int k = 0; k < 3; k++) {
+					surroundings[i][j][k] = this.worldObj.getBlock(xCoord+i-2, yCoord+k, zCoord+j-2);
+				}
+			}
+		}
+		
+		for (int x = 0; x < 5; x++) {
+			
+			//Check Layer 0
+			for (int z = 0; z < 5; z++) {
+				if ((Block.getIdFromBlock(surroundings[x][z][0]) == Block.getIdFromBlock(Blocks.stonebrick))) {
+					correctBlocks++;
+				}
+			}
+			
+			//Check Layer 1
+			for (int z = 0; z < 5; z++) {
+				//Obsidian Pilar
+				if ((z==0 || z==4) && (x==0 || x == 4)) {
+					if ((Block.getIdFromBlock(surroundings[x][z][1]) == Block.getIdFromBlock(Blocks.obsidian))) {
+						correctBlocks++;
+					}
+				}
+				else {
+					if ((Block.getIdFromBlock(surroundings[x][z][1]) == Block.getIdFromBlock(Blocks.air))) {
+						correctBlocks++;
+					}
+				}
+			}
+			
+			//Check Layer 2
+			for (int z = 0; z < 5; z++) {
+				//Obsidian Pilar
+				if ((z==0 || z==4) && (x==0 || x == 4)) {
+					if ((Block.getIdFromBlock(surroundings[x][z][2]) == Block.getIdFromBlock(Blocks.obsidian))) {
+						correctBlocks++;
+					}
+				}
+				else {
+					if ((Block.getIdFromBlock(surroundings[x][z][2]) == Block.getIdFromBlock(Blocks.air))) {
+						correctBlocks++;
+					}
+				}
+			}
+		}
+		
+		
+		//Debug
+		if (multiBlockComplete)
+			System.out.println("Complete");
+		
+		
+	
+	}
+	
+	
+	
+
+}

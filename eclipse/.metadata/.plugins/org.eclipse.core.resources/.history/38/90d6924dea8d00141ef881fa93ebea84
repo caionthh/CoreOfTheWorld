@@ -1,0 +1,9 @@
+package com.caionthh.CoreOfTheWorld;
+
+import cpw.mods.fml.common.Mod;
+import com.caionthh.CoreOfTheWorld.lib.*;
+
+@Mod(modid = Constants.modid, name = Constants.name, version = Constants.version)
+public class CoreOfTheWorld {
+
+}

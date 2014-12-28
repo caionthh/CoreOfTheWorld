@@ -1,0 +1,24 @@
+package com.caionthh.CoreOfTheWorld.lib;
+
+import com.caionthh.CoreOfTheWorld.items.*;
+
+public class ModItems {
+	
+	
+	//Core Casing
+	public static ItemCoreCasing itemCoreCasing;
+	public static ItemCoreMeat itemCoreMeat;
+	
+	
+	//Create All Items
+	public static void CreateAllItems() {
+		
+		//Core Casing
+		itemCoreCasing = new ItemCoreCasing();
+		itemCoreMeat = new ItemCoreMeat();
+		
+	}
+	
+	
+
+}
